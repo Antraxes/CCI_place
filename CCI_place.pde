@@ -13,6 +13,9 @@ int[][] new_grid;
 void setup() {
     size(1000, 1000);
     
+    //changing the rect mode to draw from center! -kamryn
+    rectMode(CENTER);
+    
     // Conway's Game of Life
     //to find the angle between two points in a polar grid, theta = atan2(point1, point2)
     // where y is verticle distance from origin and x is horizontal distance from origin
@@ -79,6 +82,11 @@ void draw() {
     popMatrix();
     
     // Rotating Sun
+    
+    //adding a square inside the circle -kamryn
+        fill(179, 34, 176);
+        rect(width/2, height/2, 100, 100);
+    
     
     // Conway's Game of Life
     fill(107, 230, 103);
@@ -149,6 +157,8 @@ void draw() {
 
         fill(69, 199, 255);
         ellipse(positions[i].x, positions[i].y, particle_size, particle_size);
+        
+      
     }
 }
 int numOfNeighbours(int x, int y) {
