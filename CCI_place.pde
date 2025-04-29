@@ -10,6 +10,8 @@ int cols;
 int[][] grid;
 int[][] new_grid;
 
+PImage myimg; //I used this! - anon
+
 void setup() {
     size(1000, 1000);
     
@@ -63,11 +65,56 @@ void draw() {
 
 
     background(0);
+
+
+    // ------------------ TEMPLATE CODE ------------------
+    //moves whatever's in the matrix to the coordinates set
+    pushMatrix();
+    translate(300, 250);
+
+    //draws 
+    noFill();
+    //makes the lines thick
+    strokeWeight(35);
+    //makes the lines flat
+    strokeCap(PROJECT);
+    //line colour 
+    stroke(255,0,0);
     
-    // Rotating Sun
+    //leftmost C
+    beginShape();
+    vertex(230, 80);
+    vertex(80, 80);
+    vertex(80, 300);
+    vertex(230, 300);
+    endShape();
+    
+    stroke(0,255,0);
+    //middle C
+    beginShape();
+    vertex(230, 150);
+    vertex(150, 150);
+    vertex(150, 230);
+    vertex(230, 230);
+    endShape();
+    
+    stroke(0,0,255);
+    //dot on i
+    line(300, 150, 300, 300);
+    //line
+    line(300, 80, 300, 80);
+    
+    popMatrix();
+    //end of matrix
+    noStroke();
+
+    // ------------------ TEMPLATE CODE ------------------
+    
+    //-------------------  Rotating Sun
     pushMatrix();
     
-    translate(500, 500);
+    //moved location - colleen
+    translate(200, 700);
 
     fill(247, 175, 5);
     ellipse(sun_pos.x, sun_pos.y, sun_size, sun_size);
@@ -81,14 +128,23 @@ void draw() {
     
     popMatrix();
     
-    // Rotating Sun
+    //------------------- Rotating Sun
+    
+    
+    //------------------- hi
+    
+    textSize(60);
+    fill(255,255,0);
+    text("Join 3DS society !!!!!!", 40, 120);
     
     //adding a square inside the circle -kamryn
         fill(179, 34, 176);
-        rect(width/2, height/2, 100, 100);
+        rect(600, 200, 100, 100);
+        //changed the location of the square! - colleen
     
     
-    // Conway's Game of Life
+    
+    //-------------------  Conway's Game of Life
     fill(107, 230, 103);
     for(int x = 0; x < cols; x++) {
         for(int y = 0; y < rows; y++) {
@@ -156,11 +212,21 @@ void draw() {
         checkBounds(positions[i], velocities[i]);
 
         fill(69, 199, 255);
-        ellipse(positions[i].x, positions[i].y, particle_size, particle_size);
-        
-      
+        ellipse(positions[i].x, positions[i].y, particle_size, particle_size); 
     }
-}
+        
+    //------------------- hello
+    myimg = loadImage("technicalskills.png");
+    image(myimg, 800, 600, 150, 150);
+        
+     
+}     // end of draw loop
+
+
+
+
+
+// this is for the game of life, not part of the draw loop!
 int numOfNeighbours(int x, int y) {
     int neighbours = 0;
     // check if a cells neighbours have a state of 1
@@ -174,4 +240,4 @@ int numOfNeighbours(int x, int y) {
     if (grid[x+1][y+1] == 1) neighbours++;
     return neighbours;
 }
-// Conway's Game of Life
+//-------------------  Conway's Game of Life
